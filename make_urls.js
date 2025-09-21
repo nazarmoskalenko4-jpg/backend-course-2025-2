@@ -1,0 +1,12 @@
+const fs = require('fs');
+const name = 'Назарій Москаленко';
+const group = 'ФЕІ-21';
+const subgroup = 'Підгрупа 1';
+const githubUser = 'nazarmoskalenko4-jpg';
+const enc = v => encodeURIComponent('"' + v + '"');
+const percentUrl = `course://web.backend?name=${enc(name)}&group=${enc(group)}&subgroup=${enc(subgroup)}#${githubUser}`;
+const nbuUrl = 'https://bank.gov.ua/NBUStatService/v1/statdirectory/basindbank?date=20231001&period=q&json';
+fs.writeFileSync('urls.txt', percentUrl + '\n' + nbuUrl + '\n', {encoding:'utf8'});
+console.log('Created urls.txt with:');
+console.log(percentUrl);
+console.log(nbuUrl);
